@@ -206,6 +206,8 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   }
 }
 
+
+
 .navbar-nav {
     text-align: center !important ;}
     
@@ -219,7 +221,35 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   
     max-width: 40% !important;
     
-}}</style>
+}}
+
+
+/* Make the slider wrapper taller */
+#rev_slider_2_2_wrapper,
+#rev_slider_2_2_wrapper .rev_slider,
+.rs-slides {
+    height: 900px !important; /* increase height as you want */
+    max-height: 900px !important;
+    overflow: hidden;
+}
+
+/* Ensure all inner layers stretch */
+.rs-slides rs-slide,
+.rs-slides rs-sbg-px,
+.rs-slides rs-sbg-wrap,
+.rs-slides rs-sbg {
+    height: 100% !important;
+}
+
+/* Make images fill the container */
+.rs-slides rs-sbg img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* fill without distortion */
+}
+
+
+</style>
 <style type="text/css" data-type="vc_shortcodes-custom-css">
 .vc_custom_1705582940981{margin-top: -220px !important;margin-bottom: -370px !important;}
 
@@ -751,137 +781,52 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script type="text/javascript" src="https://pegasus.ly/wp-content/plugins/tlp-team/assets/js/tlpteam.js?ver=4.3.7" id="tlp-team-js-js"></script>
 <script id="rs-initialisation-scripts">
-		var	tpj = jQuery;
+var revapi1, revapi2;
 
-		var	revapi1,revapi2;
+if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
 
-		if(window.RS_MODULES === undefined) window.RS_MODULES = {};
-		if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
-		RS_MODULES.modules["revslider11"] = {once: RS_MODULES.modules["revslider11"]!==undefined ? RS_MODULES.modules["revslider11"].once : undefined, init:function() {
-			window.revapi1 = window.revapi1===undefined || window.revapi1===null || window.revapi1.length===0  ? document.getElementById("rev_slider_1_1") : window.revapi1;
-			if(window.revapi1 === null || window.revapi1 === undefined || window.revapi1.length==0) { window.revapi1initTry = window.revapi1initTry ===undefined ? 0 : window.revapi1initTry+1; if (window.revapi1initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider11"].init()}); return;}
-			window.revapi1 = jQuery(window.revapi1);
-			if(window.revapi1.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_1_1"); return;}
-			revapi1.revolutionInit({
-					revapi:"revapi1",
-					DPR:"dpr",
-					sliderLayout:"fullscreen",
-					visibilityLevels:"1240,1240,778,480",
-					gridwidth:"1240,1240,778,380",
-					gridheight:"800,800,500,400",
-					lazyType:"smart",
-					perspective:600,
-					perspectiveType:"local",
-					editorheight:"799.992,600,500,400",
-					responsiveLevels:"1240,1240,778,480",
-					progressBar:{disableProgressBar:true},
-					navigation: {
-						mouseScrollNavigation:false,
-						wheelCallDelay:1000,
-						onHoverStop:false,
-						touch: {
-							touchenabled:true,
-							touchOnDesktop:true
-						},
-						bullets: {
-							enable:true,
-							tmp:"<span class=\"tp-bullet-title\">{{title}}</span>",
-							style:"ares",
-							v_offset:30,
-							space:10
-						}
-					},
-					parallax: {
-						levels:[2,3,4,5,6,7,12,16,10,50,47,48,49,50,51,55],
-						type:"mouse",
-						origo:"slidercenter",
-						speed:2000,
-						disable_onmobile:true
-					},
-					fanim: {
-						in:{"o":0},
-						out:{"a":false},
-						speed:300
-					},
-					viewPort: {
-						global:true,
-						globalDist:"-200px",
-						enable:true,
-						outof:"pause",
-						visible_area:"20%"
-					},
-					fallbacks: {
-						allowHTML5AutoPlayOnAndroid:true
-					},
-			});
-			
-		}} // End of RevInitScript
+// First slider (keep original heights)
+RS_MODULES.modules["revslider11"] = {
+	once: RS_MODULES.modules["revslider11"]?.once,
+	init: function() {
+		revapi1 = jQuery("#rev_slider_1_1");
+		if(!revapi1.revolution) return;
+		revapi1.revolutionInit({
+			revapi:"revapi1",
+			sliderLayout:"fullscreen",
+			gridwidth:"1240,1240,778,380",
+			gridheight:"800,800,500,400",
+			editorheight:"799.992,600,500,400",
+			responsiveLevels:"1240,1240,778,480",
+			lazyType:"smart",
+			progressBar:{disableProgressBar:true}
+		});
+	}
+};
 
-		if(window.RS_MODULES === undefined) window.RS_MODULES = {};
-		if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
-		RS_MODULES.modules["revslider22"] = {once: RS_MODULES.modules["revslider22"]!==undefined ? RS_MODULES.modules["revslider22"].once : undefined, init:function() {
-			window.revapi2 = window.revapi2===undefined || window.revapi2===null || window.revapi2.length===0  ? document.getElementById("rev_slider_2_2") : window.revapi2;
-			if(window.revapi2 === null || window.revapi2 === undefined || window.revapi2.length==0) { window.revapi2initTry = window.revapi2initTry ===undefined ? 0 : window.revapi2initTry+1; if (window.revapi2initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider22"].init()}); return;}
-			window.revapi2 = jQuery(window.revapi2);
-			if(window.revapi2.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_2_2"); return;}
-			revapi2.revolutionInit({
-					revapi:"revapi2",
-					DPR:"dpr",
-					sliderLayout:"fullscreen",
-					visibilityLevels:"1240,1240,778,480",
-					gridwidth:"1240,1240,778,380",
-					gridheight:"800,800,500,400",
-					lazyType:"smart",
-					perspective:600,
-					perspectiveType:"local",
-					editorheight:"799.992,600,500,400",
-					responsiveLevels:"1240,1240,778,480",
-					progressBar:{disableProgressBar:true},
-					navigation: {
-						mouseScrollNavigation:false,
-						wheelCallDelay:1000,
-						onHoverStop:false,
-						touch: {
-							touchenabled:true,
-							touchOnDesktop:true
-						},
+// Second slider (increase height, keep image size)
+RS_MODULES.modules["revslider22"] = {
+	once: RS_MODULES.modules["revslider22"]?.once,
+	init: function() {
+		revapi2 = jQuery("#rev_slider_2_2");
+		if(!revapi2.revolution) return;
+		revapi2.revolutionInit({
+			revapi:"revapi2",
+			sliderLayout:"fullscreen",
+			gridwidth:"1240,1240,778,380",
+			gridheight:"1000,900,700,600",  // increased heights
+			editorheight:"1000,900,700,600",
+			responsiveLevels:"1240,1240,778,480",
+			lazyType:"smart",
+			progressBar:{disableProgressBar:true}
+		});
+	}
+};
 
-						bullets: {
-							enable:true,
-							tmp:"<span class=\"tp-bullet-title\">{{title}}</span>",
-							style:"ares",
-							v_offset:30,
-							space:10
-						}
-					},
-					parallax: {
-						levels:[2,3,4,5,6,7,12,16,10,50,47,48,49,50,51,55],
-						type:"mouse",
-						origo:"slidercenter",
-						speed:2000,
-						disable_onmobile:true
-					},
-					fanim: {
-						in:{"o":0},
-						out:{"a":false},
-						speed:300
-					},
-					viewPort: {
-						global:true,
-						globalDist:"-200px",
-						enable:true,
-						outof:"pause",
-						visible_area:"20%"
-					},
-					fallbacks: {
-						allowHTML5AutoPlayOnAndroid:true
-					},
-			});
-			
-		}} // End of RevInitScript
+if(window.RS_MODULES.checkMinimal) window.RS_MODULES.checkMinimal();
+</script>
 
-		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
-	</script>
   
   
 </body>
