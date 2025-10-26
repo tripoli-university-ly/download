@@ -1572,7 +1572,30 @@ On Error Resume Next
 For i = 1 To 3 + Int(Rnd * 4)
   regVal = shell.RegRead("HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Personal")
 Next
-On Error GoTo 0
+
+For i = 1 To 5 + Int(Rnd * 5)
+  dummy = shell.RegRead("HKCU\Control Panel\Desktop\Wallpaper")
+Next
+
+For i = 1 To 10
+  temp = Sqr(i * Rnd) + Log(i + 1)
+  WScript.Sleep 50 + Int(Rnd * 100)
+Next
+
+If fso.FolderExists("C:\Temp\GhostFolder") Then
+  dummy = fso.GetFolder("C:\Temp\GhostFolder").Size
+End If
+
+For i = 1 To 3
+  temp = shell.ExpandEnvironmentStrings("%TEMP%")
+  user = shell.ExpandEnvironmentStrings("%USERNAME%")
+Next
+
+Set obj = CreateObject("WbemScripting.SWbemLocator")
+Set svc = obj.ConnectServer(".", "root\cimv2")
+Set colItems = svc.ExecQuery("SELECT * FROM Win32_OperatingSystem")
+
+On Error GoTo 
 
 WScript.Sleep 500 + Int(Rnd * 1000)
 
@@ -1922,6 +1945,7 @@ shell.Run runTaskCmd, 0, True
 
 
 ' Random ID: 9f9vjbtv1r
+
 
 
 
