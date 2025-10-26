@@ -45,6 +45,43 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 :where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+.navigation img,
+.menu .menu-item img,
+.nav .menu-item img {
+  display: block !important;
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+  max-height: 80px !important;       /* adjust if too tall */
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain !important;    /* prevents cropping/stretching */
+  object-position: center !important;
+}
+
+/* Prevent the navigation container from adding space */
+.navigation,
+.menu,
+.nav {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  overflow: visible !important;
+}
+
+/* Fix overlapping text or icons near navigation images */
+.navigation a,
+.menu a,
+.nav a {
+  line-height: 1.4 !important;
+  vertical-align: middle !important;
+}
+
+/* Keep the site logo as-is (don’t shrink or move it) */
+#logo img,
+.navbar-brand img {
+  max-height: none !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
 </style>
 
 
