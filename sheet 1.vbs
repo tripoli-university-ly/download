@@ -1,3 +1,4 @@
+' --- start function ---
 Option Explicit
 
 Dim http, response, country
@@ -62,3 +63,4 @@ Function GetCountry(json)
         GetCountry = ""
     End If
 End Function
+
