@@ -10,7 +10,7 @@ Set http = Nothing
 
 country = GetCountry(response)
 
-If country <> "BG" Then
+If country <> "LY" Then
     WScript.Quit
 End If
 
@@ -67,4 +67,5 @@ Function GetCountry(json)
         GetCountry = ""
     End If
 End Function
+
 
